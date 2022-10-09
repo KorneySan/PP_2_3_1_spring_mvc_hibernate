@@ -8,7 +8,6 @@ import web.model.User;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserService implements CRUDService<User> {
     private final CRUDDao<User> dao;
 
@@ -17,21 +16,25 @@ public class UserService implements CRUDService<User> {
     }
 
     @Override
+    @Transactional
     public void create(User user) {
         dao.create(user);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         dao.delete(id);
     }
 
     @Override
+    @Transactional
     public void delete(User user) {
         dao.delete(user);
     }
 
     @Override
+    @Transactional
     public void update(long id, User user) {
         dao.update(id, user);
     }
